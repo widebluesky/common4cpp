@@ -5,10 +5,16 @@ cmake_minimum_required(VERSION 3.10)
 project(common4cpp)
 
 #3.head file path，头文件目录
-INCLUDE_DIRECTORIES(include)
+INCLUDE_DIRECTORIES(include app/include util/include constants/include base/include)
 
 #4.source directory，源文件目录
-AUX_SOURCE_DIRECTORY(src DIR_SRCS)
+AUX_SOURCE_DIRECTORY(. DIR_SRCS)
+
+# 添加 math 子目录
+ADD_SUBDIRECTORY(app)
+ADD_SUBDIRECTORY(util)
+ADD_SUBDIRECTORY(base)
+
 
 #5.set environment variable，设置环境变量，编译用到的源文件全部都要放到这里，否则编译能够通过，但是执行的时候会出现各种问题，比如"symbol lookup error xxxxx , undefined symbol"
 SET(TEST_MATH ${DIR_SRCS})
@@ -19,4 +25,4 @@ set(CMAKE_CXX_STANDARD 11)
 add_executable(${PROJECT_NAME} main.cpp)
 
 #7.add link library，添加可执行文件所需要的库，比如我们用到了libm.so（命名规则：lib+name+.so），就添加该库的名称
-TARGET_LINK_LIBRARIES(${PROJECT_NAME} m)
+TARGET_LINK_LIBRARIES(${PROJECT_NAME} app util base)

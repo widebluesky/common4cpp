@@ -1,0 +1,10 @@
+//
+// Created by Xu Yi on 2018/11/13.
+//
+
+#ifndef COMMON4CPP_CONFIGUTIL_H
+#define COMMON4CPP_CONFIGUTIL_H
+
+
+
+#endif //COMMON4CPP_CONFIGUTIL_H
