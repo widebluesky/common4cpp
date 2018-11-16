@@ -6,6 +6,7 @@
 #define COMMON4CPP_CONVERTUTIL_H
 
 #include <string>
+#include <vector>
 
 namespace com {
     namespace picperweek {
